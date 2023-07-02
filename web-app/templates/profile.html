@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="../static/css/index.css"/>
+    <link rel="stylesheet" href="../static/css/profile.css"/>
+</head>
+<body>
+
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for("home") }}">Home</a></li>
+
+        <li><a href="{{ url_for("logout") }}">Logout</a></li>
+    </ul>
+</nav>
+
+<h1>Profile</h1>
+<div class="container">
+    <div class="user-info">
+        <h2>User Information</h2>
+        <p>Username: {{ user.username }}</p>
+        <p>Password: {{ user.password }}</p>
+        <p>Computation count: {{ user.computation_count }}</p>
+        <form action="{{ url_for('profile') }}" method="POST">
+            <label for="username">New Username:</label>
+            <input type="text" id="username" name="username" value="{{ user.username }}"><br>
+            <label for="password">New Password:</label>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit" value="Save Changes">
+        </form>
+    </div>
+    <div class="analysis-table">
+        <h2>Analysis Table</h2>
+        <table>
+            <tr class="column-headers">
+                <th>Text</th>
+                <th>Result</th>
+            </tr>
+
+            {% for computation in computations %}
+                <tr>
+                    <td>{{ computation.text }}</td>
+                    <td>{{ computation.result }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+</body>
+</html>

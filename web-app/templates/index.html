@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My App</title>
+    <link rel="stylesheet" href="../static/css/index.css"/>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li>Welcome, {{ username }}</li>
+        <li><a href="/profile">My Profile</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</nav>
+
+<h1>Text Sentiment Analysis App</h1>
+
+<form action="{{ url_for("home") }}" method="POST">
+    <textarea name="text" rows="5" cols="50" placeholder="Enter text ^_^"></textarea>
+    <br>
+    <button type="submit">Analyze</button>
+</form>
+
+</body>
+</html>

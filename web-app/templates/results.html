@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="../static/css/index.css"/>
+    <style>
+        p {
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="{{ url_for("home") }}">Home</a></li>
+        <li><a href="{{ url_for("profile") }}">My Profile</a></li>
+        <li><a href="{{ url_for("logout") }}">Logout</a></li>
+    </ul>
+</nav>
+<h1 style="margin-top: 150px">Analysis Result</h1>
+<p>The text is:</p>
+<p>{{ data }}</p>
+<hr style="width: 20%;">
+<p>The prediction is:</p>
+<p>{{ prediction }}</p>
+<hr style="width: 20%;">
+<p>The result in JSON format:</p>
+<a href="data:application/json;charset=utf-8,{{ result }}" download="result.json" style="font-size:26px">Download
+    result.json</a>
+</body>
+</html>
