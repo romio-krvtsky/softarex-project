@@ -1,0 +1,16 @@
+
+body {
+    text-align: center; /* Центрирование содержимого */
+}
+
+.button-container {
+    display: flex; /* Устанавливаем элементы внутри контейнера в ряд */
+    justify-content: center; /* Выравнивание элементов по горизонтали по центру */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.button-container button {
+    margin: 0 10px; /* Отступ между кнопками */
+    width: 150px; /* Ширина кнопок */
+}
+
