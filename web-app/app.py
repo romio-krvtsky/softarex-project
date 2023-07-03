@@ -31,11 +31,12 @@ app.logger.addHandler(handler)
 
 
 def analyze_data(data):
-    model = load_model("D:\\Softarex-project\\softarex-project\\web-app\\LSTM_model.h5")
+    model = load_model("model.h5")
+    # model = load_model("D:\\Softarex-project\\softarex-project\\web-app\\model.h5")
 
     text = data
-    train_data = pd.read_csv("D:\\Softarex-project\\softarex-project\\ml-app\\data\\train.csv")
-    # train_data = pd.read_csv("../../data/train.csv")
+    train_data = pd.read_csv("balanced_data.csv")
+    # train_data = pd.read_csv("D:\\Softarex-project\\softarex-project\\web-app\\balanced_data.csv")
 
     tokenizer = Tokenizer()
     tokenizer.fit_on_texts(train_data["comment_text"])
