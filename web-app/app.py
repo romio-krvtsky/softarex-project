@@ -31,12 +31,15 @@ app.logger.addHandler(handler)
 
 
 def analyze_data(data):
-    model = load_model("model.h5")
-    # model = load_model("D:\\Softarex-project\\softarex-project\\web-app\\model.h5")
-
     text = data
-    train_data = pd.read_csv("balanced_data.csv")
-    # train_data = pd.read_csv("D:\\Softarex-project\\softarex-project\\web-app\\balanced_data.csv")
+
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+
+    model_path = os.path.join(current_directory, 'model.h5')
+    data_path = os.path.join(current_directory, 'balanced_data.csv')
+
+    model = load_model(model_path)
+    train_data = pd.read_csv(data_path)
 
     tokenizer = Tokenizer()
     tokenizer.fit_on_texts(train_data["comment_text"])
